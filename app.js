@@ -14,6 +14,7 @@ app.get('/formulario_inclusao_noticia', (req,res) => {
 app.get('/noticias', (req,res) => {
     res.render('noticias/noticias'); 
 });
+
 app.listen(3000, () => {
     console.log('Servidor rodando com express');
 });
