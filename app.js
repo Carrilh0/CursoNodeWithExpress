@@ -1,11 +1,4 @@
-// Incluindo express
-const express = require('express');
-var app = express();
-
-// Incluindo mudulo de teste
-var msg = require('./module');
-
-app.set('view engine', 'ejs');
+var app = require('./config/server');
 
 app.get('/', (req,res) => {
     res.render('home/index');
@@ -20,5 +13,5 @@ app.get('/noticias', (req,res) => {
 });
 
 app.listen(3000, () => {
-    console.log(msg());
+    console.log("Servidor criado com sucesso!");
 });
