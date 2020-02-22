@@ -1,5 +1,9 @@
+// Incluindo express
 const express = require('express');
 var app = express();
+
+// Incluindo mudulo de teste
+var msg = require('./module');
 
 app.set('view engine', 'ejs');
 
@@ -16,5 +20,5 @@ app.get('/noticias', (req,res) => {
 });
 
 app.listen(3000, () => {
-    console.log('Servidor rodando com express');
+    console.log(msg());
 });
