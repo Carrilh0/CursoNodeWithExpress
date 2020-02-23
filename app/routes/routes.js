@@ -1,6 +1,9 @@
+var connection = require('../../config/dbConfig');
+
 module.exports = function(app){
     app.get('/', function(req,res){
-        res.render('home/index');
+        res.render('home/index', {noticias : result});
+
     });
 
     app.get('/formulario_inclusao_noticia', function(req,res){
@@ -8,6 +11,9 @@ module.exports = function(app){
     });
 
     app.get('/noticias', function(req,res){
-        res.render('noticias/noticias');
+        connection.query("select * from noticias", (error,result) => {
+            res.render('noticias/noticias', {noticias : result});
+
+        });
     });
 }
