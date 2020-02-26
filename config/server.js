@@ -9,6 +9,7 @@ var consign = require('consign');
     consign()
         .include('app/routes')
         .then('config/dbConnection.js')
+        .then('app/models')
         .into(app);
 
 module.exports = app;

@@ -11,8 +11,9 @@ module.exports = function(app){
     app.get('/noticias', function(req,res){
 
         var connection = app.config.dbConnection();
+        var noticiasModel = app.app.models.noticiaModel;
 
-        connection.query("select * from noticias", (error,result) => {
+        noticiasModel.getNoticias(connection, (error,result) => {
             res.render('noticias/noticias', {noticias : result});
         });
     });
@@ -21,9 +22,11 @@ module.exports = function(app){
 
         var connection = app.config.dbConnection();
         var id = req.params.id;
+        var noticiasModel = app.app.models.noticiaModel;
 
-        connection.query(`select * from noticias where id = ${id}`, (error,result) => {
+        noticiasModel.getNoticia(connection, (error,result) => {
             res.render('noticias/noticia', {noticia : result});
-        });
+        },id);
+        
     });
 }
