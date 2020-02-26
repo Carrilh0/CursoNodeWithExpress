@@ -10,3 +10,5 @@
 - Mysql: Biblioteca para o uso do mysql no node
 
 - Ejs: Template engine para o node, comparado ao blade do laravel.
+
+- Consign: Autoload de pastas e documentos
