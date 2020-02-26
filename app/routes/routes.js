@@ -17,11 +17,12 @@ module.exports = function(app){
         });
     });
 
-    app.get('/noticia', function(req,res){
+    app.get('/noticia/:id', function(req,res){
 
         var connection = app.config.dbConnection();
+        var id = req.params.id;
 
-        connection.query("select * from noticias where id = 1", (error,result) => {
+        connection.query(`select * from noticias where id = ${id}`, (error,result) => {
             res.render('noticias/noticia', {noticia : result});
         });
     });
