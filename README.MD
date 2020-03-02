@@ -12,3 +12,5 @@
 - Ejs: Template engine para o node, comparado ao blade do laravel.
 
 - Consign: Autoload de pastas e documentos
+
+- Body Parser: Enviar informações do formulário para o backend
