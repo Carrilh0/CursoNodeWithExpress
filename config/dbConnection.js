@@ -7,6 +7,8 @@ var connMySQL = () => {
                 password : '',
                 database : 'node'
             });
+
+            
 }
 module.exports = (app) =>
     {
