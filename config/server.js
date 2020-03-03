@@ -1,8 +1,11 @@
 // Incluindo express
 const express = require('express');
 var app = express();
+
 var consign = require('consign');
 var bodyParser = require('body-parser');
+const { check, validationResult } = require('express-validator');
+
 
     app.set('view engine', 'ejs');
     app.set('views', './app/views');
