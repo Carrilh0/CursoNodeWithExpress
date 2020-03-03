@@ -14,3 +14,5 @@
 - Consign: Autoload de pastas e documentos
 
 - Body Parser: Enviar informações do formulário para o backend
+
+- Express Validator: Validação de formulários
