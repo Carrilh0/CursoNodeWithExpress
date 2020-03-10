@@ -1,34 +1,20 @@
-const { check, validationResult } = require('express-validator');
+const { check} = require('express-validator');
 
 module.exports = function(app){
     app.get('/', function(req,res){
-        res.render('home/index');
+        app.app.controllers.HomeController.index(app,req,res);
     });
 
     app.get('/formulario_inclusao_noticia', function(req,res){
-        res.render('admin/form_add_noticia', {validacao: {}, noticia : {}});
+        app.app.controllers.AdminController.formulario_inclusao_noticia(app,req,res);
     });
 
     app.get('/noticias', function(req,res){
-
-        var connection = app.config.dbConnection();
-        var noticiasModel = new app.app.models.NoticiasDAO(connection);
-
-        noticiasModel.getNoticias((error,result) => {
-            res.render('noticias/noticias', {noticias : result});
-        });
+        app.app.controllers.NoticiaController.noticias(app,req,res);
     });
 
     app.get('/noticia/:id', function(req,res){
-
-        var connection = app.config.dbConnection();
-        var id = req.params.id;
-        var noticiasModel = new app.app.models.NoticiasDAO(connection);
-
-        noticiasModel.getNoticia((error,result) => {
-            res.render('noticias/noticia', {noticia : result});
-        },id);
-        
+        app.app.controllers.NoticiaController.noticia(app,req,res);
     });
 
     app.post('/noticias/salvar', [
@@ -38,23 +24,7 @@ module.exports = function(app){
         //Validação de noticia
     check('noticia','Noticia obrigatorio').not().isEmpty()
 
-    ], function(req,res){
-        
-        var noticia = req.body;
-
-        
-
-        const erros = validationResult(req);
-            if (!erros.isEmpty()) {
-                return res.render('admin/form_add_noticia',{ validacao: erros.array(), noticia: noticia});
-            }
-
-
-        var connection = app.config.dbConnection();
-        var noticiasModel = new app.app.models.NoticiasDAO(connection);
-
-        noticiasModel.salvarNoticia(noticia,(error,result) => {
-            res.redirect('/noticias');
-        });
+    ], function(req,res){ 
+        app.app.controllers.AdminController.noticias_salvar(app,req,res);
     });
 }
