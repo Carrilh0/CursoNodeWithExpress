@@ -46,7 +46,7 @@
 	    	<div class="row">
 	    		<div class="col-md-8">
 	    			<div class="noticia_wrapper">
-		    			<a href="noticia.html" class="noticia_titulo"><%= noticias[0].titulo %></a>
+		    			<a href="noticia/<%=noticias[0].id%>" class="noticia_titulo"><%= noticias[0].titulo %></a>
 		    			<span class="noticia_data"><%= noticias[0].created_at %></span>
 		    			<br />
 		    			<p class="noticia_resumo">
@@ -56,7 +56,7 @@
 
 	    		<div class="col-md-4">
 	    			<div class="noticia_wrapper">
-		    			<a href="noticia.html" class="noticia_titulo"><%= noticias[1].titulo %></a>
+		    			<a href="noticia/<%=noticias[1].id%>" class="noticia_titulo"><%= noticias[1].titulo %></a>
 		    			<span class="noticia_data"><%= noticias[1].created_at %></span>
 
 		    			<br />
@@ -71,7 +71,7 @@
 				<% for(var i = 2; i < noticias.length; i++) {%>
 				<div class="col-md-4">
 	    			<div class="noticia_wrapper">
-		    			<a href="noticia.html" class="noticia_titulo"><%=noticias[i].titulo%></a>
+		    			<a href="noticia/<%=noticias[i].id%>" class="noticia_titulo"><%=noticias[i].titulo%></a>
 		    			<span class="noticia_data"><%=noticias[i].created_at%></span>
 		    			<br />
 		    			<p class="noticia_resumo">
